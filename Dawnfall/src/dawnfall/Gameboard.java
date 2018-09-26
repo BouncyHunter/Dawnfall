@@ -18,8 +18,13 @@ public class Gameboard extends JLayeredPane{
 		danger = new JLabel();
 		danger.setBounds((FRAME_X - DEADLINE_WIDTH) / 2, FRAME_Y - DEADLINE_HEIGHT, DEADLINE_WIDTH, DEADLINE_HEIGHT);
 		main_timer = new Timer(20,new GBListener());
+	}
+	
+	public void start()
+	{
 		main_timer.start();
 	}
+	
 
 	public Npc[] getNpcs() {
 		return npcs;
