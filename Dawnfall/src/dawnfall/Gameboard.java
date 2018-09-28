@@ -17,8 +17,14 @@ public class Gameboard extends JLayeredPane{
 		setBounds(0,0,FRAME_X,FRAME_Y);
 		danger = new JLabel();
 		danger.setBounds((FRAME_X - DEADLINE_WIDTH) / 2, FRAME_Y - DEADLINE_HEIGHT, DEADLINE_WIDTH, DEADLINE_HEIGHT);
-		main_timer = new Timer(20,null);
+		main_timer = new Timer(20,new GBListener());
 	}
+	
+	public void start()
+	{
+		main_timer.start();
+	}
+	
 
 	public Npc[] getNpcs() {
 		return npcs;
@@ -28,14 +34,25 @@ public class Gameboard extends JLayeredPane{
 		this.npcs = npcs;
 	}
 	
+	public void victory() {
+		
+	}
+	
 	class GBListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			if(npcs.length == 0)
+			{
+				main_timer.stop();
+				victory();
+				return;
+			}
 			for(Npc n : npcs) {
 				n.setCooldown(n.getCooldown() + n.getCooldownBoost());
 				if(n.getCooldown() >= n.getMaxCooldown())
 				{
+					n.setCooldown(0);
 					n.action();
 				}
 			}
