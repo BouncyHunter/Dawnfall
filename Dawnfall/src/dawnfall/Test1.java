@@ -13,6 +13,7 @@ public class Test1 {
 		main_frame = new JFrame("||TEST||");
 		main_frame.setBounds(0, 0, Gameboard.FRAME_X, Gameboard.FRAME_Y);
 		main_frame.setLayeredPane(main_board);
+		main_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		npcs = new Npc[2];
 		for(int i = 1;i <= 2;i ++)
 		{
@@ -22,6 +23,9 @@ public class Test1 {
 				}
 			};
 		}
+		main_board.setNpcs(npcs);
+		main_board.start();
+		main_frame.setVisible(true);
 	}
 	
 	public static void main(String[] args) {
