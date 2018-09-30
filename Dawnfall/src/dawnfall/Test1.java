@@ -14,7 +14,7 @@ public class Test1 {
 		main_frame.setBounds(0, 0, Gameboard.FRAME_X, Gameboard.FRAME_Y);
 		main_frame.setLayeredPane(main_board);
 		main_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		npcs = new Npc[2];
+		/*npcs = new Npc[2];
 		for(int i = 1;i <= 2;i ++)
 		{
 			npcs[i - 1] = new Npc() {
@@ -22,8 +22,8 @@ public class Test1 {
 					getActivePane().add(ProjectileFactory.create(ProjectileFactory.FIREBALL));
 				}
 			};
-		}
-		main_board.setNpcs(npcs);
+		}*/
+		//main_board.setNpcs(npcs);
 		main_board.start();
 		main_frame.setVisible(true);
 	}
