@@ -19,7 +19,7 @@ public class TriggerMage implements Trigger{
 		cooldown ++;
 		if(cooldown == 50) {
 			System.out.println("Test attack!");
-			new Projectile(p);
+			new TestButton(p);
 			cooldown = 0;
 		}
 	}
