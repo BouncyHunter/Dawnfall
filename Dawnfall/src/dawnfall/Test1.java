@@ -13,7 +13,8 @@ public class Test1 {
 		main_frame = new JFrame("||TEST||");
 		main_frame.setBounds(0, 0, Gameboard.FRAME_X, Gameboard.FRAME_Y);
 		main_frame.setLayeredPane(main_board);
-		npcs = new Npc[2];
+		main_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		/*npcs = new Npc[2];
 		for(int i = 1;i <= 2;i ++)
 		{
 			npcs[i - 1] = new Npc() {
@@ -21,7 +22,12 @@ public class Test1 {
 					getActivePane().add(ProjectileFactory.create(ProjectileFactory.FIREBALL));
 				}
 			};
-		}
+		}*/
+		//main_board.setNpcs(npcs);
+		main_board.addTrigger(new TriggerMage(main_board));
+		new CannonButton(200,200,main_board);
+		main_board.start();
+		main_frame.setVisible(true);
 	}
 	
 	public static void main(String[] args) {
