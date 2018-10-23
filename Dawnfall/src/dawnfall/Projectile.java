@@ -1,10 +1,12 @@
 package dawnfall;
 
+import java.awt.event.KeyEvent;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
-public class Projectile extends JLabel implements Trigger{
+public class Projectile extends TriggerAdapter{
 	
 	Gameboard active_pane;
 	
@@ -21,7 +23,12 @@ public class Projectile extends JLabel implements Trigger{
 	@Override
 	public void actionPerformed(int index) {
 		// TODO Auto-generated method stub
-		System.out.println("Howdy. Howdy.");
+		//System.out.println("Howdy. Howdy.");
+	}
+	
+	@Override
+	public void keyPressed(KeyEvent e) {
+		System.out.println("Howdy.Howdy.");
 	}
 
 	@Override

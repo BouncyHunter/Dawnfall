@@ -2,9 +2,11 @@ package dawnfall;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+
 
 public class CannonButton extends JButton implements Trigger{
 	int cooldown = 0;
@@ -41,6 +43,24 @@ public class CannonButton extends JButton implements Trigger{
 	public Gameboard getActivePane() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

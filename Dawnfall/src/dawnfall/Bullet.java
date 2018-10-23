@@ -3,7 +3,7 @@ package dawnfall;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-public class Bullet extends JLabel implements Trigger{
+public class Bullet extends TriggerAdapter{
 	
 	int direction;
 	int status = 0;
