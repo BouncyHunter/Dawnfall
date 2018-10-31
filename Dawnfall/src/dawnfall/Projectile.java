@@ -18,6 +18,7 @@ public class Projectile extends TriggerAdapter{
 		this.setIcon(new ImageIcon("./resource/Projectile.png"));
 		p.add(this);
 		p.addTrigger(this);
+		
 	}
 	
 	@Override
