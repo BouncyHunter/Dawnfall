@@ -4,16 +4,19 @@ import javax.swing.JFrame;
 
 public class Test1 {
 	
-	JFrame main_frame;
+	Window main_frame;
 	Gameboard main_board;
 	Npc[] npcs;
 	
 	public Test1() {
 		main_board = new Gameboard();
-		main_frame = new JFrame("||TEST||");
+		main_frame = new Window();
 		main_frame.setBounds(0, 0, Gameboard.FRAME_X, Gameboard.FRAME_Y);
 		main_frame.setLayeredPane(main_board);
 		main_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		main_frame.setActiveBoard(main_board);
+		main_frame.setFocusable(true);
+	    main_board.setActiveWindow(main_frame);
 		/*npcs = new Npc[2];
 		for(int i = 1;i <= 2;i ++)
 		{
