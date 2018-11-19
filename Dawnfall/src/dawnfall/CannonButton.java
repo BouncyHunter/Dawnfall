@@ -36,7 +36,7 @@ public class CannonButton extends JButton implements Trigger , Path{
 				{
 					if(t instanceof JComponent)
 					{
-						if(Tools.getDistance(((JComponent) t).getBounds(),CannonButton.this.getBounds()) <= 2500)
+						if(t.getRaces().contains("Enemy") && Tools.getDistance(((JComponent) t).getBounds(),CannonButton.this.getBounds()) <= 10000)
 						{
 							int x = (int) (((JComponent) t).getBounds().getCenterX() - CannonButton.this.getBounds().getCenterX());
 							int y = (int) (((JComponent) t).getBounds().getCenterY() - CannonButton.this.getBounds().getCenterY());
@@ -67,24 +67,6 @@ public class CannonButton extends JButton implements Trigger , Path{
 	public Gameboard getActivePane() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -119,6 +101,12 @@ public class CannonButton extends JButton implements Trigger , Path{
 	public int getCurrentMovementY() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public Races getRaces() {
+		// TODO Auto-generated method stub
+		return new Races();
 	}
 
 }
