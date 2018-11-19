@@ -19,7 +19,7 @@ public class TriggerMage implements Trigger{
 		// TODO Auto-generated method stub
 		System.out.print("=");
 		cooldown ++;
-		if(cooldown == 50) {
+		if(cooldown == 5) {
 			System.out.println("Test attack!");
 			new TestButton(p);
 			cooldown = 0;
@@ -37,21 +37,9 @@ public class TriggerMage implements Trigger{
 	}
 
 	@Override
-	public void keyPressed(KeyEvent e) {
+	public Races getRaces() {
 		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+		return new Races();
 	}
 
 }
