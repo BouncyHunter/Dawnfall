@@ -24,6 +24,7 @@ public class Test1 {
 			};
 		}*/
 		//main_board.setNpcs(npcs);
+		main_board.addTrigger(new TriggerMage(main_board));
 		main_board.start();
 		main_frame.setVisible(true);
 	}

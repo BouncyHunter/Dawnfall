@@ -6,22 +6,26 @@ public class TriggerMage implements Trigger{
 	int cooldown;
 	Gameboard p;
 	
-	public TriggerMage() {
+	public TriggerMage(Gameboard g) {
+		p = g;
 		cooldown = 0;
+		System.out.println("I've joined the battlefield!");
 	}
 
 	@Override
 	public void actionPerformed() {
 		// TODO Auto-generated method stub
+		System.out.println("Charging...");
 		cooldown ++;
 		if(cooldown == 50) {
-			new ProjectileFireball(p);
+			System.out.println("Test attack!");
+			new TestButton(p);
 			cooldown = 0;
 		}
 	}
 
 	@Override
-	public JLayeredPane getActivePane() {
+	public Gameboard getActivePane() {
 		// TODO Auto-generated method stub
 		return p;
 	}

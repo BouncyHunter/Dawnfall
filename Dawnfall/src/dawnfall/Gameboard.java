@@ -19,17 +19,17 @@ public class Gameboard extends JLayeredPane{
 	//public static final int TEXT_STACK = 5;
 	//int timer_pointer;
 	Timer main_timer;
-	ArrayList<Projectile> projectile_list = new ArrayList<Projectile>();
 	int health = 100;
 	
-	Trigger[] triggers;
+	ArrayList<Trigger> trigger_list = new ArrayList<Trigger>();
+    ArrayList<Trigger> buffer_trigger = new ArrayList<Trigger>();
 	
 	public Gameboard() {
 		setBounds(0,0,FRAME_X,FRAME_Y);
 		health_bar = new JProgressBar(0,health);
 		health_bar.setBounds((FRAME_X - DEADLINE_WIDTH) / 2, FRAME_Y - DEADLINE_HEIGHT, DEADLINE_WIDTH, DEADLINE_HEIGHT);
 		health_bar.setBackground(Color.RED);
-		main_timer = new Timer(500,new GBListener());
+		main_timer = new Timer(100,new GBListener());
 	}
 	
 	/*public void intitalizeTimer() {
@@ -55,11 +55,8 @@ public class Gameboard extends JLayeredPane{
 		
 	}
 	
-	public void addProjectile(Projectile p) {    //CHOICE : interface or class ?
-		projectile_list.add(p);
-		if(p instanceof JLabel) {
-			add(p);
-		}
+	public void addTrigger(Trigger t) {
+		buffer_trigger.add(t);
 	}
 	
 	public boolean takeDamage(int a) {
@@ -69,35 +66,17 @@ public class Gameboard extends JLayeredPane{
 		else return true;
 	}
 	
-	public void createStaticLabel(String text, int duration,Rectangle r) {
-		JLabel tempo_label = new JLabel(text);
-		tempo_label.setBounds(r);
-		add(tempo_label);
-		Timer tempo_timer = new Timer(duration,new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				remove(tempo_label);
-			}
-			
-		});
-		tempo_timer.setRepeats(false);
-		tempo_timer.start();
-	}
-	
 	class GBListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			for(Trigger t : triggers) {
+			for(Trigger t : trigger_list) {
 				t.actionPerformed();
 			}
-			for(Projectile p:projectile_list)
-			{
-				if(!p.action()) {
-					projectile_list.remove(p);
-				}
+			for(Trigger t : buffer_trigger) {
+				trigger_list.add(t);
 			}
+			buffer_trigger.removeAll(buffer_trigger);
 		}
 		
 	}
